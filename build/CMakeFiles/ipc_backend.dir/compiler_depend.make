@@ -5,7 +5,32 @@ CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o: /home/zocac/proje
   /usr/include/stdc-predef.h
 
 CMakeFiles/ipc_backend.dir/src/backend/main.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c \
-  /usr/include/stdc-predef.h
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdio.h \
+  /usr/include/sys/cdefs.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
 
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c \
   /usr/include/stdc-predef.h
@@ -37,46 +62,96 @@ ipc_backend: /usr/lib/Scrt1.o \
 
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o:
 
-CMakeFiles/ipc_backend.dir/src/backend/main.c.o:
-
-/usr/lib/ld-linux-x86-64.so.2:
-
-CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
-
-CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o:
-
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
-
-/usr/include/stdc-predef.h:
-
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c:
-
-/usr/lib/Scrt1.o:
-
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c:
-
-CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o:
-
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c:
-
-/usr/lib/crti.o:
-
 /usr/lib/libc_nonshared.a:
+
+CMakeFiles/ipc_backend.dir/src/backend/main.c.o:
 
 /usr/lib/libc.so.6:
 
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c:
+/usr/lib/ld-linux-x86-64.so.2:
 
-/usr/lib/crtn.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
-/usr/lib/libc.so:
+/usr/lib/libgcc_s.so.1:
 
 /usr/lib/libgcc_s.so:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
 
-/usr/lib/libgcc_s.so.1:
+/usr/lib/crtn.o:
+
+/usr/lib/crti.o:
+
+/usr/lib/Scrt1.o:
+
+CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o:
+
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c:
+
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c:
+
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c:
+
+/usr/include/bits/types.h:
+
+/usr/lib/libc.so:
+
+/usr/include/bits/types/__FILE.h:
+
+/usr/include/bits/types/FILE.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/bits/stdio_lim.h:
+
+CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/bits/floatn.h:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/bits/long-double.h:
+
+/usr/include/bits/floatn-common.h:
+
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c:
+
+CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o:
+
+/usr/include/stdio.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/bits/types/__fpos_t.h:
+
+/usr/include/bits/types/__fpos64_t.h:
+
+/usr/include/features-time64.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/bits/types/cookie_io_functions_t.h:
+
+/usr/include/bits/types/struct_FILE.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/timesize.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
+
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c:
