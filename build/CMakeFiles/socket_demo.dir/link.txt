@@ -1,0 +1,1 @@
+/usr/sbin/gcc -g -Wl,--dependency-file=CMakeFiles/socket_demo.dir/link.d CMakeFiles/socket_demo.dir/src/backend/sockets/socket_demo.c.o CMakeFiles/socket_demo.dir/src/backend/common/json_output.c.o -o socket_demo

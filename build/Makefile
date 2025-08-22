@@ -117,24 +117,52 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ipc_backend
+# Target rules for targets named pipe_demo
 
 # Build rule for target.
-ipc_backend: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ipc_backend
-.PHONY : ipc_backend
+pipe_demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pipe_demo
+.PHONY : pipe_demo
 
 # fast build rule for target.
-ipc_backend/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/build
-.PHONY : ipc_backend/fast
+pipe_demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/build
+.PHONY : pipe_demo/fast
+
+#=============================================================================
+# Target rules for targets named socket_demo
+
+# Build rule for target.
+socket_demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 socket_demo
+.PHONY : socket_demo
+
+# fast build rule for target.
+socket_demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/build
+.PHONY : socket_demo/fast
+
+#=============================================================================
+# Target rules for targets named shm_demo
+
+# Build rule for target.
+shm_demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shm_demo
+.PHONY : shm_demo
+
+# fast build rule for target.
+shm_demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/build
+.PHONY : shm_demo/fast
 
 src/backend/common/json_output.o: src/backend/common/json_output.c.o
 .PHONY : src/backend/common/json_output.o
 
 # target to build an object file
 src/backend/common/json_output.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/common/json_output.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/common/json_output.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/common/json_output.c.o
 .PHONY : src/backend/common/json_output.c.o
 
 src/backend/common/json_output.i: src/backend/common/json_output.c.i
@@ -142,7 +170,9 @@ src/backend/common/json_output.i: src/backend/common/json_output.c.i
 
 # target to preprocess a source file
 src/backend/common/json_output.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/common/json_output.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/common/json_output.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/common/json_output.c.i
 .PHONY : src/backend/common/json_output.c.i
 
 src/backend/common/json_output.s: src/backend/common/json_output.c.s
@@ -150,39 +180,17 @@ src/backend/common/json_output.s: src/backend/common/json_output.c.s
 
 # target to generate assembly for a file
 src/backend/common/json_output.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/common/json_output.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/common/json_output.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/common/json_output.c.s
 .PHONY : src/backend/common/json_output.c.s
-
-src/backend/main.o: src/backend/main.c.o
-.PHONY : src/backend/main.o
-
-# target to build an object file
-src/backend/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/main.c.o
-.PHONY : src/backend/main.c.o
-
-src/backend/main.i: src/backend/main.c.i
-.PHONY : src/backend/main.i
-
-# target to preprocess a source file
-src/backend/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/main.c.i
-.PHONY : src/backend/main.c.i
-
-src/backend/main.s: src/backend/main.c.s
-.PHONY : src/backend/main.s
-
-# target to generate assembly for a file
-src/backend/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/main.c.s
-.PHONY : src/backend/main.c.s
 
 src/backend/pipes/pipe_demo.o: src/backend/pipes/pipe_demo.c.o
 .PHONY : src/backend/pipes/pipe_demo.o
 
 # target to build an object file
 src/backend/pipes/pipe_demo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/pipes/pipe_demo.c.o
 .PHONY : src/backend/pipes/pipe_demo.c.o
 
 src/backend/pipes/pipe_demo.i: src/backend/pipes/pipe_demo.c.i
@@ -190,7 +198,7 @@ src/backend/pipes/pipe_demo.i: src/backend/pipes/pipe_demo.c.i
 
 # target to preprocess a source file
 src/backend/pipes/pipe_demo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/pipes/pipe_demo.c.i
 .PHONY : src/backend/pipes/pipe_demo.c.i
 
 src/backend/pipes/pipe_demo.s: src/backend/pipes/pipe_demo.c.s
@@ -198,7 +206,7 @@ src/backend/pipes/pipe_demo.s: src/backend/pipes/pipe_demo.c.s
 
 # target to generate assembly for a file
 src/backend/pipes/pipe_demo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/src/backend/pipes/pipe_demo.c.s
 .PHONY : src/backend/pipes/pipe_demo.c.s
 
 src/backend/shared_memory/shm_demo.o: src/backend/shared_memory/shm_demo.c.o
@@ -206,7 +214,7 @@ src/backend/shared_memory/shm_demo.o: src/backend/shared_memory/shm_demo.c.o
 
 # target to build an object file
 src/backend/shared_memory/shm_demo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/shared_memory/shm_demo.c.o
 .PHONY : src/backend/shared_memory/shm_demo.c.o
 
 src/backend/shared_memory/shm_demo.i: src/backend/shared_memory/shm_demo.c.i
@@ -214,7 +222,7 @@ src/backend/shared_memory/shm_demo.i: src/backend/shared_memory/shm_demo.c.i
 
 # target to preprocess a source file
 src/backend/shared_memory/shm_demo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/shared_memory/shm_demo.c.i
 .PHONY : src/backend/shared_memory/shm_demo.c.i
 
 src/backend/shared_memory/shm_demo.s: src/backend/shared_memory/shm_demo.c.s
@@ -222,7 +230,7 @@ src/backend/shared_memory/shm_demo.s: src/backend/shared_memory/shm_demo.c.s
 
 # target to generate assembly for a file
 src/backend/shared_memory/shm_demo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/src/backend/shared_memory/shm_demo.c.s
 .PHONY : src/backend/shared_memory/shm_demo.c.s
 
 src/backend/sockets/socket_demo.o: src/backend/sockets/socket_demo.c.o
@@ -230,7 +238,7 @@ src/backend/sockets/socket_demo.o: src/backend/sockets/socket_demo.c.o
 
 # target to build an object file
 src/backend/sockets/socket_demo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/sockets/socket_demo.c.o
 .PHONY : src/backend/sockets/socket_demo.c.o
 
 src/backend/sockets/socket_demo.i: src/backend/sockets/socket_demo.c.i
@@ -238,7 +246,7 @@ src/backend/sockets/socket_demo.i: src/backend/sockets/socket_demo.c.i
 
 # target to preprocess a source file
 src/backend/sockets/socket_demo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/sockets/socket_demo.c.i
 .PHONY : src/backend/sockets/socket_demo.c.i
 
 src/backend/sockets/socket_demo.s: src/backend/sockets/socket_demo.c.s
@@ -246,7 +254,7 @@ src/backend/sockets/socket_demo.s: src/backend/sockets/socket_demo.c.s
 
 # target to generate assembly for a file
 src/backend/sockets/socket_demo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/src/backend/sockets/socket_demo.c.s
 .PHONY : src/backend/sockets/socket_demo.c.s
 
 # Help Target
@@ -257,13 +265,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ipc_backend"
+	@echo "... pipe_demo"
+	@echo "... shm_demo"
+	@echo "... socket_demo"
 	@echo "... src/backend/common/json_output.o"
 	@echo "... src/backend/common/json_output.i"
 	@echo "... src/backend/common/json_output.s"
-	@echo "... src/backend/main.o"
-	@echo "... src/backend/main.i"
-	@echo "... src/backend/main.s"
 	@echo "... src/backend/pipes/pipe_demo.o"
 	@echo "... src/backend/pipes/pipe_demo.i"
 	@echo "... src/backend/pipes/pipe_demo.s"

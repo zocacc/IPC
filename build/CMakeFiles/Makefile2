@@ -63,11 +63,15 @@ CMAKE_BINARY_DIR = /home/zocac/projects/sistemas-operacionais/projeto-ipc/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ipc_backend.dir/all
+all: CMakeFiles/pipe_demo.dir/all
+all: CMakeFiles/socket_demo.dir/all
+all: CMakeFiles/shm_demo.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/ipc_backend.dir/codegen
+codegen: CMakeFiles/pipe_demo.dir/codegen
+codegen: CMakeFiles/socket_demo.dir/codegen
+codegen: CMakeFiles/shm_demo.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +79,106 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ipc_backend.dir/clean
+clean: CMakeFiles/pipe_demo.dir/clean
+clean: CMakeFiles/socket_demo.dir/clean
+clean: CMakeFiles/shm_demo.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ipc_backend.dir
+# Target rules for target CMakeFiles/pipe_demo.dir
 
 # All Build rule for target.
-CMakeFiles/ipc_backend.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target ipc_backend"
-.PHONY : CMakeFiles/ipc_backend.dir/all
+CMakeFiles/pipe_demo.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=1,2,3 "Built target pipe_demo"
+.PHONY : CMakeFiles/pipe_demo.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ipc_backend.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ipc_backend.dir/all
+CMakeFiles/pipe_demo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/pipe_demo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 0
-.PHONY : CMakeFiles/ipc_backend.dir/rule
+.PHONY : CMakeFiles/pipe_demo.dir/rule
 
 # Convenience name for target.
-ipc_backend: CMakeFiles/ipc_backend.dir/rule
-.PHONY : ipc_backend
+pipe_demo: CMakeFiles/pipe_demo.dir/rule
+.PHONY : pipe_demo
 
 # codegen rule for target.
-CMakeFiles/ipc_backend.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target ipc_backend"
-.PHONY : CMakeFiles/ipc_backend.dir/codegen
+CMakeFiles/pipe_demo.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target pipe_demo"
+.PHONY : CMakeFiles/pipe_demo.dir/codegen
 
 # clean rule for target.
-CMakeFiles/ipc_backend.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ipc_backend.dir/build.make CMakeFiles/ipc_backend.dir/clean
-.PHONY : CMakeFiles/ipc_backend.dir/clean
+CMakeFiles/pipe_demo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipe_demo.dir/build.make CMakeFiles/pipe_demo.dir/clean
+.PHONY : CMakeFiles/pipe_demo.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/socket_demo.dir
+
+# All Build rule for target.
+CMakeFiles/socket_demo.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=7,8,9 "Built target socket_demo"
+.PHONY : CMakeFiles/socket_demo.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/socket_demo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/socket_demo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 0
+.PHONY : CMakeFiles/socket_demo.dir/rule
+
+# Convenience name for target.
+socket_demo: CMakeFiles/socket_demo.dir/rule
+.PHONY : socket_demo
+
+# codegen rule for target.
+CMakeFiles/socket_demo.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=7,8,9 "Finished codegen for target socket_demo"
+.PHONY : CMakeFiles/socket_demo.dir/codegen
+
+# clean rule for target.
+CMakeFiles/socket_demo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/socket_demo.dir/build.make CMakeFiles/socket_demo.dir/clean
+.PHONY : CMakeFiles/socket_demo.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/shm_demo.dir
+
+# All Build rule for target.
+CMakeFiles/shm_demo.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=4,5,6 "Built target shm_demo"
+.PHONY : CMakeFiles/shm_demo.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/shm_demo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/shm_demo.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles 0
+.PHONY : CMakeFiles/shm_demo.dir/rule
+
+# Convenience name for target.
+shm_demo: CMakeFiles/shm_demo.dir/rule
+.PHONY : shm_demo
+
+# codegen rule for target.
+CMakeFiles/shm_demo.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=4,5,6 "Finished codegen for target shm_demo"
+.PHONY : CMakeFiles/shm_demo.dir/codegen
+
+# clean rule for target.
+CMakeFiles/shm_demo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/shm_demo.dir/build.make CMakeFiles/shm_demo.dir/clean
+.PHONY : CMakeFiles/shm_demo.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

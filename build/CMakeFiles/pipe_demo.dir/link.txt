@@ -1,0 +1,1 @@
+/usr/sbin/gcc -g -Wl,--dependency-file=CMakeFiles/pipe_demo.dir/link.d CMakeFiles/pipe_demo.dir/src/backend/pipes/pipe_demo.c.o CMakeFiles/pipe_demo.dir/src/backend/common/json_output.c.o -o pipe_demo

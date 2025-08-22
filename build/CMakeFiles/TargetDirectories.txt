@@ -1,3 +1,5 @@
-/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/ipc_backend.dir
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/pipe_demo.dir
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/socket_demo.dir
+/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/shm_demo.dir
 /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/edit_cache.dir
 /home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles/rebuild_cache.dir

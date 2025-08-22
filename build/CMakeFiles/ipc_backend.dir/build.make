@@ -76,75 +76,90 @@ CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o: CMakeFiles/ipc_ba
 CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c
 CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c
 
 CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.i"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c > CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.i
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c > CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.i
 
 CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.s"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c -o CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.s
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c -o CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.s
+
+CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o: CMakeFiles/ipc_backend.dir/flags.make
+CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/test_json_output.c
+CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/test_json_output.c
+
+CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.i"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/test_json_output.c > CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.i
+
+CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.s"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/test_json_output.c -o CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.s
 
 CMakeFiles/ipc_backend.dir/src/backend/main.c.o: CMakeFiles/ipc_backend.dir/flags.make
 CMakeFiles/ipc_backend.dir/src/backend/main.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c
 CMakeFiles/ipc_backend.dir/src/backend/main.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ipc_backend.dir/src/backend/main.c.o"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/main.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/main.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/main.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ipc_backend.dir/src/backend/main.c.o"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/main.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/main.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/main.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c
 
 CMakeFiles/ipc_backend.dir/src/backend/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/main.c.i"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c > CMakeFiles/ipc_backend.dir/src/backend/main.c.i
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c > CMakeFiles/ipc_backend.dir/src/backend/main.c.i
 
 CMakeFiles/ipc_backend.dir/src/backend/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/main.c.s"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c -o CMakeFiles/ipc_backend.dir/src/backend/main.c.s
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c -o CMakeFiles/ipc_backend.dir/src/backend/main.c.s
 
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o: CMakeFiles/ipc_backend.dir/flags.make
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c
 
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.i"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c > CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.i
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c > CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.i
 
 CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.s"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.s
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.s
 
 CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o: CMakeFiles/ipc_backend.dir/flags.make
 CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c
 CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c
 
 CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.i"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c > CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.i
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c > CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.i
 
 CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.s"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.s
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.s
 
 CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o: CMakeFiles/ipc_backend.dir/flags.make
 CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o: /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c
 CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o: CMakeFiles/ipc_backend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o"
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o -MF CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o.d -o CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o -c /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c
 
 CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.i"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c > CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.i
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c > CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.i
 
 CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.s"
-	/usr/sbin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.s
+	/usr/sbin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/sockets/socket_demo.c -o CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.s
 
 # Object files for target ipc_backend
 ipc_backend_OBJECTS = \
 "CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o" \
+"CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o" \
 "CMakeFiles/ipc_backend.dir/src/backend/main.c.o" \
 "CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o" \
 "CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o" \
@@ -154,6 +169,7 @@ ipc_backend_OBJECTS = \
 ipc_backend_EXTERNAL_OBJECTS =
 
 ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o
+ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o
 ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/main.c.o
 ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o
 ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o
@@ -161,7 +177,7 @@ ipc_backend: CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o
 ipc_backend: CMakeFiles/ipc_backend.dir/build.make
 ipc_backend: CMakeFiles/ipc_backend.dir/compiler_depend.ts
 ipc_backend: CMakeFiles/ipc_backend.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable ipc_backend"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zocac/projects/sistemas-operacionais/projeto-ipc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ipc_backend"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ipc_backend.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

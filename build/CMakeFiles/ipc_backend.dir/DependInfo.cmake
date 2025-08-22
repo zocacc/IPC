@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/json_output.c" "CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o" "gcc" "CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o.d"
+  "/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/common/test_json_output.c" "CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o" "gcc" "CMakeFiles/ipc_backend.dir/src/backend/common/test_json_output.c.o.d"
   "/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/main.c" "CMakeFiles/ipc_backend.dir/src/backend/main.c.o" "gcc" "CMakeFiles/ipc_backend.dir/src/backend/main.c.o.d"
   "/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/pipes/pipe_demo.c" "CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o" "gcc" "CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o.d"
   "/home/zocac/projects/sistemas-operacionais/projeto-ipc/src/backend/shared_memory/shm_demo.c" "CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o" "gcc" "CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o.d"
