@@ -1,0 +1,1 @@
+/usr/sbin/cc -Wl,--dependency-file=CMakeFiles/ipc_backend.dir/link.d CMakeFiles/ipc_backend.dir/src/backend/common/json_output.c.o CMakeFiles/ipc_backend.dir/src/backend/main.c.o CMakeFiles/ipc_backend.dir/src/backend/pipes/pipe_demo.c.o CMakeFiles/ipc_backend.dir/src/backend/shared_memory/shm_demo.c.o CMakeFiles/ipc_backend.dir/src/backend/sockets/socket_demo.c.o -o ipc_backend
