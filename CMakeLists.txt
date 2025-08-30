@@ -35,3 +35,27 @@ target_include_directories(shm_demo PRIVATE ${COMMON_DIR})
 
 # Bibliotecas do sistema (se necessárias)
 target_link_libraries(shm_demo rt)  # Para shared memory no Linux
+
+# ==============
+# Testes
+# ==============
+# Usar FetchContent para baixar e configurar o Google Test
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+# Adicionar o executável de teste
+add_executable(
+    backend_tests 
+    tests/backend_tests/pipe_test.cpp
+)
+
+# Linkar o executável de teste com as bibliotecas do Google Test
+target_link_libraries(
+    backend_tests 
+    PRIVATE gtest_main
+)
