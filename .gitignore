@@ -1,0 +1,33 @@
+# Diretórios de build e arquivos gerados pelo CMake
+/build/
+/install/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+.cmake/
+
+# Arquivos de objeto e dependência
+*.o
+*.d
+
+# Executáveis gerados
+pipe_demo
+pipe_test
+test_json_output
+
+# Ambiente virtual do Python
+/.venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de configuração de IDEs comuns
+.vscode/
+.idea/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
