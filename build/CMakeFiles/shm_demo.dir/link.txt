@@ -1,1 +1,0 @@
-/usr/sbin/gcc -g -Wl,--dependency-file=CMakeFiles/shm_demo.dir/link.d CMakeFiles/shm_demo.dir/src/backend/shared_memory/shm_demo.c.o CMakeFiles/shm_demo.dir/src/backend/common/json_output.c.o -o shm_demo  -lrt
