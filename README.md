@@ -258,5 +258,5 @@ ls -la build/
 
 ## 👥 Autores
 
-- **Enzo Capellari** - *Desenvolvimento inicial* - [zocacc](https://github.com/zocacc)
+- **Enzo Capellari** - *Desenvolvimento e planejamento* - [zocacc](https://github.com/zocacc)
 
