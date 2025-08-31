@@ -73,17 +73,21 @@ while true; do
             echo "Testando shared memory..."
             ./build/shm_demo "Teste de shared memory"
             ;;
-        5)
-            echo "Testando tudo..."
-            echo "Pipes:"
-            ./build/pipe_demo "Teste completo"
-            echo "Sockets:"
-            ./build/socket_demo "Teste completo"
-            echo "Shared Memory:"
-            ./build/shm_demo "Teste completo"
-            echo "Frontend:"
-            python3 src/frontend/main.py
-            ;;
+                 5)
+             echo "Testando tudo..."
+             echo "Pipes:"
+             ./build/pipe_demo "Teste completo"
+             echo "Sockets:"
+             ./build/socket_demo "Teste completo"
+             echo "Shared Memory:"
+             ./build/shm_demo "Teste completo"
+             echo "Frontend (teste de integração):"
+             if [ -f "tests/frontend_tests/integration.py" ]; then
+                 python3 tests/frontend_tests/integration.py
+             else
+                 echo "Arquivo de teste de integração não encontrado"
+             fi
+             ;;
         6)
             echo "Saindo..."
             exit 0
