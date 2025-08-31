@@ -256,16 +256,7 @@ ls -la build/
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
 ## 👥 Autores
 
-- **Seu Nome** - *Desenvolvimento inicial* - [SeuGitHub](https://github.com/seugithub)
+- **Enzo Capellari** - *Desenvolvimento inicial* - [zocacc](https://github.com/zocacc)
 
-## 🙏 Agradecimentos
-
-- Professores e colegas do curso de Sistemas Operacionais
-- Comunidade Linux/Unix
-- Documentação do CMake e Python
