@@ -21,21 +21,21 @@ def test_json_output(program_path, args, description):
                               timeout=10)
         
         if result.returncode != 0:
-            print(f"❌ Programa falhou com código {result.returncode}")
+            print(f"[ERRO] Programa falhou com código {result.returncode}")
             if result.stderr:
                 print(f"Erro: {result.stderr}")
             return False
         
         # Verifica se há saída
         if not result.stdout.strip():
-            print("❌ Nenhuma saída gerada")
+            print("[ERRO] Nenhuma saída gerada")
             return False
         
         # Conta linhas de JSON
         lines = result.stdout.strip().split('\n')
         json_lines = [line for line in lines if line.strip()]
         
-        print(f"📊 Gerou {len(json_lines)} linhas de saída")
+        print(f"[INFO] Gerou {len(json_lines)} linhas de saída")
         
         # Tenta fazer parse de cada linha como JSON
         valid_json_count = 0
@@ -47,31 +47,31 @@ def test_json_output(program_path, args, description):
                     
                     # Verifica se tem os campos esperados
                     if 'type' in json_obj and 'timestamp' in json_obj:
-                        print(f"✅ Linha {i+1}: JSON válido - tipo: {json_obj['type']}")
+                        print(f"[OK] Linha {i+1}: JSON válido - tipo: {json_obj['type']}")
                     else:
-                        print(f"⚠️  Linha {i+1}: JSON válido mas campos inesperados")
+                        print(f"[AVISO] Linha {i+1}: JSON válido mas campos inesperados")
                         
                 except json.JSONDecodeError as e:
-                    print(f"❌ Linha {i+1}: JSON inválido - {e}")
+                    print(f"[ERRO] Linha {i+1}: JSON inválido - {e}")
                     print(f"   Conteúdo: {line[:100]}...")
         
-        print(f"📈 {valid_json_count}/{len(json_lines)} linhas são JSON válido")
+        print(f"[INFO] {valid_json_count}/{len(json_lines)} linhas são JSON válido")
         
         if valid_json_count > 0:
-            print(f"✅ {description} funcionando - gera JSON válido")
+            print(f"[SUCESSO] {description} funcionando - gera JSON válido")
             return True
         else:
-            print(f"❌ {description} falhou - nenhum JSON válido gerado")
+            print(f"[ERRO] {description} falhou - nenhum JSON válido gerado")
             return False
             
     except subprocess.TimeoutExpired:
-        print(f"❌ {description} falhou - timeout após 10 segundos")
+        print(f"[ERRO] {description} falhou - timeout após 10 segundos")
         return False
     except FileNotFoundError:
-        print(f"❌ {description} falhou - programa não encontrado em {program_path}")
+        print(f"[ERRO] {description} falhou - programa não encontrado em {program_path}")
         return False
     except Exception as e:
-        print(f"❌ {description} falhou com erro: {e}")
+        print(f"[ERRO] {description} falhou com erro: {e}")
         return False
 
 def test_json_escaping():
@@ -91,7 +91,7 @@ def test_json_escaping():
                               timeout=10)
         
         if result.returncode != 0:
-            print("❌ Teste de escape falhou - programa não executou")
+            print("[ERRO] Teste de escape falhou - programa não executou")
             return False
         
         # Procura pela linha que contém a mensagem de teste
@@ -103,11 +103,11 @@ def test_json_escaping():
                 test_lines.append(line)
         
         if not test_lines:
-            print("❌ Teste de escape falhou - linhas de teste não encontradas")
+            print("[ERRO] Teste de escape falhou - linhas de teste não encontradas")
             print("   Procurando por mensagens que contenham 'teste com' e 'aspas'")
             return False
         
-        print(f"📊 Encontradas {len(test_lines)} linhas com a mensagem de teste")
+        print(f"[INFO] Encontradas {len(test_lines)} linhas com a mensagem de teste")
         
         # Verifica se todas as linhas são JSON válido
         valid_count = 0
@@ -115,38 +115,38 @@ def test_json_escaping():
             try:
                 json_obj = json.loads(test_line)
                 valid_count += 1
-                print(f"✅ Linha {i+1}: JSON válido com caracteres especiais")
+                print(f"[OK] Linha {i+1}: JSON válido com caracteres especiais")
                 
                 # Verifica se a mensagem foi escapada corretamente
                 if 'message' in json_obj:
                     message = json_obj['message']
                     if '\\"' in message:
-                        print(f"   ✅ Aspas duplas escapadas corretamente")
+                        print(f"   [OK] Aspas duplas escapadas corretamente")
                     if '\\\\' in message:
-                        print(f"   ✅ Backslashes escapados corretamente")
+                        print(f"   [OK] Backslashes escapados corretamente")
                     if '\\n' in message:
-                        print(f"   ✅ Quebras de linha escapadas corretamente")
+                        print(f"   [OK] Quebras de linha escapadas corretamente")
                         
             except json.JSONDecodeError as e:
-                print(f"❌ Linha {i+1}: JSON inválido - {e}")
+                print(f"[ERRO] Linha {i+1}: JSON inválido - {e}")
                 print(f"   Conteúdo: {test_line[:100]}...")
         
-        print(f"📈 {valid_count}/{len(test_lines)} linhas são JSON válido")
+        print(f"[INFO] {valid_count}/{len(test_lines)} linhas são JSON válido")
         
         if valid_count == len(test_lines):
-            print("✅ Todos os JSONs com caracteres especiais são válidos")
+            print("[SUCESSO] Todos os JSONs com caracteres especiais são válidos")
             return True
         else:
-            print("⚠️  Alguns JSONs com caracteres especiais são inválidos")
+            print("[AVISO] Alguns JSONs com caracteres especiais são inválidos")
             return False
             
     except Exception as e:
-        print(f"❌ Teste de escape falhou com erro: {e}")
+        print(f"[ERRO] Teste de escape falhou com erro: {e}")
         return False
 
 def main():
     """Função principal do teste"""
-    print("🧪 Teste de Integração - Verificação de JSON Output")
+    print("Teste de Integração - Verificação de JSON Output")
     print("=" * 50)
     
     # Diretório base do projeto
@@ -186,25 +186,25 @@ def main():
     
     # Resumo final
     print("\n" + "=" * 50)
-    print("📋 RESUMO DOS TESTES")
+    print("RESUMO DOS TESTES")
     print("=" * 50)
     
     passed = 0
     total = len(results)
     
     for description, success in results:
-        status = "✅ PASSOU" if success else "❌ FALHOU"
+        status = "[PASSOU]" if success else "[FALHOU]"
         print(f"{description}: {status}")
         if success:
             passed += 1
     
-    print(f"\n📊 Resultado: {passed}/{total} testes passaram")
+    print(f"\n[INFO] Resultado: {passed}/{total} testes passaram")
     
     if passed == total:
-        print("🎉 Todos os testes passaram! JSON output funcionando corretamente.")
+        print("[SUCESSO] Todos os testes passaram! JSON output funcionando corretamente.")
         return 0
     else:
-        print("⚠️  Alguns testes falharam. Verifique os logs acima.")
+        print("[AVISO] Alguns testes falharam. Verifique os logs acima.")
         return 1
 
 if __name__ == "__main__":
