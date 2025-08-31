@@ -127,9 +127,40 @@ class IPCDemoWindow:
         """Envia mensagem via socket"""
         message = self.sockets_message.get()
         if message:
-            # Implementação futura
-            self.sockets_output.insert("end", f"[{datetime.now().strftime('%H:%M:%S')}] STATUS: Sockets - Em desenvolvimento\n")
-            self.sockets_output.see("end")
+            self.backend_manager.start_process(
+                "sockets",
+                "socket_demo",
+                [message],
+                self.on_sockets_output
+            )
+    
+    def on_sockets_output(self, data):
+        """Callback para sa\u00edda dos sockets"""
+        self.root.after(0, lambda: self.update_sockets_display(data))
+    
+    def update_sockets_display(self, data):
+        """Atualiza display dos sockets (thread-safe)"""
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
+
+        if data["type"] == "status":
+            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
+            self.sockets_output.insert("end", text)
+            
+        elif data["type"] == "data":
+            text = f"[{timestamp}] {data['source'].upper()}: {data['data'].strip()}{pid_info}\n"
+            self.sockets_output.insert("end", text)
+            
+        elif data["type"] == "error":
+            text = f"[{timestamp}] ERRO: {data['error'].strip()}{pid_info}\n"
+            self.sockets_output.insert("end", text)
+
+        elif data["type"] == "raw":
+            text = f"[{timestamp}] RAW: {data['data'].strip()}\n"
+            self.sockets_output.insert("end", text)
+        
+        # Auto-scroll para baixo
+        self.sockets_output.see("end")
     
     def send_shm_message(self):
         """Envia mensagem via memória compartilhada"""
