@@ -67,3 +67,11 @@ add_executable(pipe_test
 )
 target_include_directories(pipe_test PRIVATE ${COMMON_DIR} ${CMAKE_SOURCE_DIR})
 add_test(NAME pipe_test COMMAND pipe_test)
+
+# Teste para sockets
+add_executable(socket_test
+    tests/backend_tests/test_sockets.c
+    ${COMMON_SOURCES}
+)
+target_include_directories(socket_test PRIVATE ${COMMON_DIR} ${BACKEND_DIR}/sockets)
+add_test(NAME socket_test COMMAND socket_test)
