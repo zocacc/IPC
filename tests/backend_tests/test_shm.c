@@ -1,3 +1,15 @@
+/**
+ * @file test_shm.c
+ * @brief Teste unitário para o módulo de memória compartilhada
+ * 
+ * Este arquivo implementa testes automatizados para verificar o funcionamento
+ * correto do sistema de memória compartilhada, incluindo criação, escrita,
+ * leitura, sincronização via semáforos e limpeza de recursos.
+ * 
+ * @author [Seu Nome]
+ * @date [Data de Criação]
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,6 +18,25 @@
 #include "shm_handler.h"
 #include "json_output.h"
 
+/**
+ * @brief Executa o teste completo de memória compartilhada
+ * 
+ * Esta função implementa um teste end-to-end que:
+ * 1. Cria um segmento de memória compartilhada no processo pai
+ * 2. Cria um processo filho que se conecta ao segmento
+ * 3. Coordena escrita/leitura via semáforos
+ * 4. Verifica a integridade dos dados transmitidos
+ * 5. Limpa todos os recursos criados
+ * 
+ * O teste verifica:
+ * - Criação e inicialização correta do segmento
+ * - Sincronização via semáforos POSIX
+ * - Transmissão correta de dados entre processos
+ * - Limpeza adequada de recursos
+ * 
+ * @note Todas as operações são logadas em formato JSON para facilitar debug
+ * @note O processo filho termina com código de saída apropriado
+ */
 void run_test() {
     shm_manager_t shm_mgr;
     pid_t pid;
@@ -89,6 +120,14 @@ void run_test() {
     }
 }
 
+/**
+ * @brief Função principal do teste
+ * 
+ * Ponto de entrada para o executável de teste. Chama a função
+ * de teste principal e retorna 0 para indicar sucesso.
+ * 
+ * @return 0 sempre (sucesso)
+ */
 int main() {
     run_test();
     return 0;
