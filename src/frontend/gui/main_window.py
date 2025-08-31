@@ -63,16 +63,54 @@ class IPCDemoWindow:
         sockets_frame = ttk.Frame(self.notebook)
         self.notebook.add(sockets_frame, text="Sockets Locais")
         
-        # Implementação similar aos pipes
-        ttk.Label(sockets_frame, text="Implementação de Sockets - Em desenvolvimento").pack(pady=20)
+        # Frame superior - controles
+        control_frame = ttk.Frame(sockets_frame)
+        control_frame.pack(fill="x", padx=5, pady=5)
+        
+        ttk.Label(control_frame, text="Mensagem:").pack(side="left")
+        
+        self.sockets_message = tk.StringVar(value="Hello from socket!")
+        entry = ttk.Entry(control_frame, textvariable=self.sockets_message, width=30)
+        entry.pack(side="left", padx=5)
+        
+        ttk.Button(control_frame, text="Enviar", 
+                  command=self.send_socket_message).pack(side="left", padx=5)
+        
+        ttk.Button(control_frame, text="Limpar", 
+                  command=lambda: self.sockets_output.delete(1.0, "end")).pack(side="left")
+        
+        # Frame inferior - saída
+        ttk.Label(sockets_frame, text="Saída:").pack(anchor="w", padx=5)
+        
+        self.sockets_output = scrolledtext.ScrolledText(sockets_frame, height=20)
+        self.sockets_output.pack(fill="both", expand=True, padx=5, pady=5)
     
     def setup_shm_tab(self):
         """Configura aba de demonstração de memória compartilhada"""
         shm_frame = ttk.Frame(self.notebook)
         self.notebook.add(shm_frame, text="Memória Compartilhada")
         
-        # Implementação similar aos pipes
-        ttk.Label(shm_frame, text="Implementação de Memória Compartilhada - Em desenvolvimento").pack(pady=20)
+        # Frame superior - controles
+        control_frame = ttk.Frame(shm_frame)
+        control_frame.pack(fill="x", padx=5, pady=5)
+        
+        ttk.Label(control_frame, text="Mensagem:").pack(side="left")
+        
+        self.shm_message = tk.StringVar(value="Hello from shared memory!")
+        entry = ttk.Entry(control_frame, textvariable=self.shm_message, width=30)
+        entry.pack(side="left", padx=5)
+        
+        ttk.Button(control_frame, text="Enviar", 
+                  command=self.send_shm_message).pack(side="left", padx=5)
+        
+        ttk.Button(control_frame, text="Limpar", 
+                  command=lambda: self.shm_output.delete(1.0, "end")).pack(side="left")
+        
+        # Frame inferior - saída
+        ttk.Label(shm_frame, text="Saída:").pack(anchor="w", padx=5)
+        
+        self.shm_output = scrolledtext.ScrolledText(shm_frame, height=20)
+        self.shm_output.pack(fill="both", expand=True, padx=5, pady=5)
     
     def send_pipe_message(self):
         """Envia mensagem via pipe"""
@@ -85,28 +123,77 @@ class IPCDemoWindow:
                 self.on_pipes_output
             )
     
+    def send_socket_message(self):
+        """Envia mensagem via socket"""
+        message = self.sockets_message.get()
+        if message:
+            # Implementação futura
+            self.sockets_output.insert("end", f"[{datetime.now().strftime('%H:%M:%S')}] STATUS: Sockets - Em desenvolvimento\n")
+            self.sockets_output.see("end")
+    
+    def send_shm_message(self):
+        """Envia mensagem via memória compartilhada"""
+        message = self.shm_message.get()
+        if message:
+            self.backend_manager.start_process(
+                "shm",
+                "shm_demo",
+                [message],  # Passa a mensagem como argumento
+                self.on_shm_output
+            )
+    
     def on_pipes_output(self, data):
         """Callback para saída dos pipes"""
         self.root.after(0, lambda: self.update_pipes_display(data))
     
+    def on_shm_output(self, data):
+        """Callback para saída da memória compartilhada"""
+        self.root.after(0, lambda: self.update_shm_display(data))
+    
     def update_pipes_display(self, data):
         """Atualiza display dos pipes (thread-safe)"""
         timestamp = datetime.now().strftime("%H:%M:%S")
-        
+        pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
+
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message']}\n"
+            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
             self.pipes_output.insert("end", text)
             
         elif data["type"] == "data":
-            text = f"[{timestamp}] {data['source'].upper()}: {data['data']}\n"
+            text = f"[{timestamp}] {data['source'].upper()}: {data['data'].strip()}{pid_info}\n"
             self.pipes_output.insert("end", text)
             
         elif data["type"] == "error":
-            text = f"[{timestamp}] ERRO: {data['error']}\n"
+            text = f"[{timestamp}] ERRO: {data['error'].strip()}{pid_info}\n"
+            self.pipes_output.insert("end", text)
+
+        elif data["type"] == "raw":
+            text = f"[{timestamp}] RAW: {data['data'].strip()}\n"
             self.pipes_output.insert("end", text)
         
         # Auto-scroll para baixo
         self.pipes_output.see("end")
+    
+    def update_shm_display(self, data):
+        """Atualiza display da memória compartilhada (thread-safe)"""
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
+        
+        if data["type"] == "status":
+            text = f"[{timestamp}] STATUS: {data['message']}{pid_info}\n"
+            self.shm_output.insert("end", text)
+            
+        elif data["type"] == "data":
+            text = f"[{timestamp}] {data['source'].upper()}: {data['data']}{pid_info}\n"
+            self.shm_output.insert("end", text)
+            
+        elif data["type"] == "error":
+            text = f"[{timestamp}] ERRO: {data['error']}{pid_info}\n"
+            self.shm_output.insert("end", text)
+        
+        # Auto-scroll para baixo
+        self.shm_output.see("end")
+        self.shm_output.update_idletasks()  # Força atualização da interface
     
     def on_close(self):
         """Cleanup ao fechar aplicação"""
