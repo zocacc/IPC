@@ -144,7 +144,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
 
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] STATUS ({status_val}): {data['message'].strip()}{pid_info}\n"
             self.sockets_output.insert("end", text)
             
         elif data["type"] == "data":
@@ -187,7 +188,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
 
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] STATUS ({status_val}): {data['message'].strip()}{pid_info}\n"
             self.pipes_output.insert("end", text)
             
         elif data["type"] == "data":
@@ -211,7 +213,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
         
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message']}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] STATUS ({status_val}): {data['message'].strip()}{pid_info}\n"
             self.shm_output.insert("end", text)
             
         elif data["type"] == "data":

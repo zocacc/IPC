@@ -1,6 +1,11 @@
-# Diretórios de build e arquivos gerados pelo CMake
+# =============================================================================
+# Build Artifacts & Compilation
+# =============================================================================
+# Ignora o diretório de build onde todos os artefatos compilados são gerados.
 /build/
 /install/
+
+# Ignora arquivos de cache e de configuração gerados pelo CMake.
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
@@ -8,32 +13,50 @@ Makefile
 compile_commands.json
 .cmake/
 
-# Arquivos de objeto e dependência
+# Ignora arquivos de objeto, bibliotecas e dependências compiladas.
 *.o
+*.a
+*.so
+*.dll
 *.d
 
-# Executáveis gerados
-pipe_demo
-pipe_test
-test_json_output
-
-# Ambiente virtual do Python
+# =============================================================================
+# Python
+# =============================================================================
+# Ignora o diretório do ambiente virtual do Python.
 /.venv/
 
-# Arquivos de cache do Python
+# Ignora arquivos de cache e bytecode do Python.
 __pycache__/
 *.pyc
+*.pyo
 
-# Arquivos de configuração de IDEs comuns
+# =============================================================================
+# IDE & Editor Configurations
+# =============================================================================
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Arquivos de sistema operacional
+# =============================================================================
+# OS-specific Files
+# =============================================================================
 .DS_Store
 Thumbs.db
 
+# =============================================================================
+# Environment & Local Config
+# =============================================================================
+# Ignora arquivos de variáveis de ambiente locais.
 .env
+*.local
 
+# =============================================================================
+# Project-specific Ignores
+# =============================================================================
+# Arquivos de anotações e fluxo de trabalho local.
 GEMINI.md
 QWEN.md
 USAGE.md
+requirements.txt
