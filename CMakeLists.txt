@@ -37,7 +37,7 @@ target_include_directories(socket_demo PRIVATE ${COMMON_DIR} ${BACKEND_DIR}/sock
 target_include_directories(shm_demo PRIVATE ${COMMON_DIR} ${BACKEND_DIR}/shared_memory)
 
 # Bibliotecas do sistema (se necessárias)
-target_link_libraries(shm_demo rt)  # Para shared memory no Linux
+target_link_libraries(shm_demo rt pthread)  # Para shared memory no Linux
 
 # ==============
 # Testes
@@ -49,7 +49,7 @@ add_executable(shm_test
     ${COMMON_SOURCES}
 )
 target_include_directories(shm_test PRIVATE ${COMMON_DIR} ${BACKEND_DIR}/shared_memory)
-target_link_libraries(shm_test rt)
+target_link_libraries(shm_test rt pthread)
 add_test(NAME shm_test COMMAND shm_test)
 
 # Teste para json_output

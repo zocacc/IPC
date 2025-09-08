@@ -7,7 +7,7 @@
  * para o filho enviar dados de volta ao pai (eco).
  *
  * A saída do programa é em formato JSON para permitir a integração com
- * uma interface gráfica (frontend).
+ * uma interface gráfica (frontend), com logs detalhados de cada etapa.
  */
 
 #include <stdio.h>
@@ -15,114 +15,113 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "../common/json_output.h" // Funções para imprimir em formato JSON
+#include "../common/json_output.h"
 
-#define BUFFER_SIZE 256 // Define um tamanho para o buffer de mensagens
+#define BUFFER_SIZE 256
 
 int main(int argc, char *argv[]) {
-    // 1. Validação dos Argumentos de Entrada
-    // O programa espera uma mensagem como argumento para ser enviada via pipe.
     if (argc < 2) {
-        print_json_error("pipes", "Erro: Uma mensagem é necessária. Uso: ./pipe_demo <sua-mensagem>", 0);
+        print_json_error("pipes", "Uso: ./pipe_demo <mensagem>", getpid());
         return 1;
     }
     const char *message_to_send = argv[1];
+    char status_msg[512];
 
-    // 2. Declaração dos Pipes e Variáveis
-    int parent_to_child_pipe[2]; // Pipe 1: Pai -> Filho
-    int child_to_parent_pipe[2]; // Pipe 2: Filho -> Pai
-    pid_t pid;                   // Para armazenar o ID do processo filho
-    char buffer[BUFFER_SIZE];    // Buffer para ler as mensagens recebidas
+    // --- 1. SETUP ---
+    print_json_status("pipes", "setup", "Iniciando a configuração dos pipes...", getpid());
 
-    print_json_status("pipes", "info", "Iniciando a demonstração de pipes.", getpid());
+    int parent_to_child_pipe[2];
+    int child_to_parent_pipe[2];
+    pid_t pid;
+    char buffer[BUFFER_SIZE];
 
-    // 3. Criação dos Pipes
-    // A função pipe() cria um par de descritores de arquivo:
-    // - descritor[0] é para leitura
-    // - descritor[1] é para escrita
     if (pipe(parent_to_child_pipe) == -1 || pipe(child_to_parent_pipe) == -1) {
         print_json_error("pipes", "Falha ao criar os pipes.", getpid());
         exit(EXIT_FAILURE);
     }
-    print_json_status("pipes", "info", "Pipes criados com sucesso.", getpid());
+    print_json_status("pipes", "setup_complete", "Pipes de comunicação (Pai->Filho e Filho->Pai) criados.", getpid());
 
-    // 4. Criação do Processo Filho (Fork)
-    // O fork() cria uma cópia do processo atual.
-    // - No processo pai, fork() retorna o PID do filho.
-    // - No processo filho, fork() retorna 0.
-    // - Em caso de erro, retorna -1.
+    // --- 2. FORKING ---
+    print_json_status("pipes", "fork", "Criando processo filho...", getpid());
     pid = fork();
 
     if (pid == -1) {
-        print_json_error("pipes", "Falha ao criar o processo filho (fork).", getpid());
+        print_json_error("pipes", "Falha no fork().", getpid());
         exit(EXIT_FAILURE);
     }
 
-    // 5. Lógica do Processo Filho
+    // --- 3. LÓGICA DO PROCESSO FILHO ---
     if (pid == 0) {
         pid_t child_pid = getpid();
-        pid_t parent_pid = getppid(); // PID do processo pai
-        print_json_status("pipes", "info", "Processo filho iniciado.", child_pid);
+        print_json_status("pipes", "child_start", "Processo filho iniciado.", child_pid);
 
-        // 5.1. Fechar as pontas não utilizadas dos pipes no filho
-        // O filho vai ler do pipe "pai->filho", então fecha a ponta de escrita.
-        close(parent_to_child_pipe[1]);
-        // O filho vai escrever no pipe "filho->pai", então fecha a ponta de leitura.
-        close(child_to_parent_pipe[0]);
+        // Fechar pontas não utilizadas
+        close(parent_to_child_pipe[1]); // Não escreve no pipe Pai->Filho
+        close(child_to_parent_pipe[0]);  // Não lê no pipe Filho->Pai
+        print_json_status("pipes", "child_setup", "Filho fechou pontas de pipe não utilizadas.", child_pid);
 
-        // 5.2. Ler a mensagem enviada pelo pai
+        // Ler do pai
+        snprintf(status_msg, sizeof(status_msg), "Filho aguardando mensagem do pai no pipe...");
+        print_json_status("pipes", "child_read_wait", status_msg, child_pid);
         ssize_t bytes_read = read(parent_to_child_pipe[0], buffer, sizeof(buffer) - 1);
-        if (bytes_read > 0) {
-            buffer[bytes_read] = '\0'; // Garante que a string termina com null
-            // Ao logar a mensagem recebida, usa o PID do pai (remetente)
-            print_json_data("pipes", buffer, "pai -> filho", parent_pid);
 
-            // 5.3. Enviar a mesma mensagem de volta para o pai (eco)
-            print_json_status("pipes", "info", "Filho ecoando a mensagem para o pai.", child_pid);
+        if (bytes_read > 0) {
+            buffer[bytes_read] = '\0';
+            snprintf(status_msg, sizeof(status_msg), "Filho recebeu %zd bytes.", bytes_read);
+            print_json_status("pipes", "child_read_ok", status_msg, child_pid);
+            print_json_data("pipes", buffer, "pai -> filho", getppid());
+
+            // Escrever eco para o pai
+            snprintf(status_msg, sizeof(status_msg), "Filho enviando eco: \"%s\"", buffer);
+            print_json_status("pipes", "child_write", status_msg, child_pid);
             write(child_to_parent_pipe[1], buffer, strlen(buffer) + 1);
+
         } else {
-            print_json_error("pipes", "Filho não conseguiu ler a mensagem do pai.", child_pid);
+            print_json_error("pipes", "Filho falhou ao ler do pipe do pai.", child_pid);
         }
 
-        // 5.4. Fechar as pontas restantes e terminar
+        // Limpeza final do filho
         close(parent_to_child_pipe[0]);
         close(child_to_parent_pipe[1]);
-        print_json_status("pipes", "info", "Processo filho finalizado.", child_pid);
+        print_json_status("pipes", "child_exit", "Processo filho finalizado.", child_pid);
         exit(EXIT_SUCCESS);
     }
-    // 6. Lógica do Processo Pai
+    // --- 4. LÓGICA DO PROCESSO PAI ---
     else {
         pid_t parent_pid = getpid();
-        print_json_status("pipes", "info", "Processo pai continua a execução.", parent_pid);
+        print_json_status("pipes", "parent_start", "Pai continua execução após fork.", parent_pid);
 
-        // 6.1. Fechar as pontas não utilizadas dos pipes no pai
-        // O pai vai escrever no pipe "pai->filho", então fecha a ponta de leitura.
-        close(parent_to_child_pipe[0]);
-        // O pai vai ler do pipe "filho->pai", então fecha a ponta de escrita.
-        close(child_to_parent_pipe[1]);
+        // Fechar pontas não utilizadas
+        close(parent_to_child_pipe[0]); // Não lê no pipe Pai->Filho
+        close(child_to_parent_pipe[1]);  // Não escreve no pipe Filho->Pai
+        print_json_status("pipes", "parent_setup", "Pai fechou pontas de pipe não utilizadas.", parent_pid);
 
-        // 6.2. Enviar a mensagem para o filho
-        print_json_status("pipes", "info", "Pai enviando mensagem para o filho.", parent_pid);
+        // Escrever para o filho
+        snprintf(status_msg, sizeof(status_msg), "Pai enviando mensagem: \"%s\"", message_to_send);
+        print_json_status("pipes", "parent_write", status_msg, parent_pid);
         write(parent_to_child_pipe[1], message_to_send, strlen(message_to_send) + 1);
         print_json_data("pipes", message_to_send, "pai -> filho", parent_pid);
 
-        // 6.3. Ler o eco do filho
+        // Ler eco do filho
+        print_json_status("pipes", "parent_read_wait", "Pai aguardando eco do filho...", parent_pid);
         ssize_t bytes_read = read(child_to_parent_pipe[0], buffer, sizeof(buffer) - 1);
+
         if (bytes_read > 0) {
             buffer[bytes_read] = '\0';
-            // Ao logar o eco recebido, usa o PID do filho (remetente)
+            snprintf(status_msg, sizeof(status_msg), "Pai recebeu eco de %zd bytes.", bytes_read);
+            print_json_status("pipes", "parent_read_ok", status_msg, parent_pid);
             print_json_data("pipes", buffer, "filho -> pai (eco)", pid);
         } else {
-            print_json_error("pipes", "Pai não conseguiu ler o eco do filho.", parent_pid);
+            print_json_error("pipes", "Pai falhou ao ler o eco do filho.", parent_pid);
         }
 
-        // 6.4. Fechar as pontas restantes
+        // Limpeza final do pai
         close(parent_to_child_pipe[1]);
         close(child_to_parent_pipe[0]);
 
-        // 6.5. Esperar o processo filho terminar para evitar zumbis
+        print_json_status("pipes", "parent_wait", "Pai aguardando término do processo filho...", parent_pid);
         wait(NULL);
-        print_json_status("pipes", "success", "Demonstração de pipes concluída.", parent_pid);
+        print_json_status("pipes", "success", "Comunicação via pipes concluída com sucesso.", parent_pid);
     }
 
     return 0;

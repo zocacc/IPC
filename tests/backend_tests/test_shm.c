@@ -78,6 +78,9 @@ void run_test() {
             exit(1);
         }
 
+        // Adicionado para exibir o dado de comunicação, conforme solicitado.
+        print_json_data("test_shm", buffer, "shm_read", getpid());
+
         // 3. Child Process: Assert and report
         const char* expected_message = "Hello from parent!";
         if (strcmp(buffer, expected_message) == 0) {

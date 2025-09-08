@@ -63,14 +63,17 @@ while true; do
             ;;
         2)
             echo "Testando pipes..."
+            echo "Mensagem de teste: Teste de pipes"
             ./build/pipe_demo "Teste de pipes"
             ;;
         3)
             echo "Testando sockets..."
+            echo "Mensagem de teste: Teste de sockets"
             ./build/socket_demo "Teste de sockets"
             ;;
         4)
             echo "Testando shared memory..."
+            echo "Mensagem de teste: Teste de shared memory"
             ./build/shm_demo "Teste de shared memory"
             ;;
                  5)
@@ -101,4 +104,5 @@ while true; do
     echo "Pressione Enter para continuar..."
     read
     echo
+    clear
 done

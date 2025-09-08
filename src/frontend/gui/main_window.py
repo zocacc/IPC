@@ -1,15 +1,21 @@
 import tkinter as tk
 from tkinter import ttk, scrolledtext
 from backend_comm.process_manager import BackendManager
+import tkinter.font as tkFont
 import json
 from datetime import datetime
 
 class IPCDemoWindow:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("IPC Demo - Comunicação Entre Processos")
-        self.root.geometry("800x600")
+        self.root.title("IPC - Comunicação Entre Processos")
+        self.root.geometry("1400x800")
+
         
+        # Definindo fonte padrão
+        fonte_padrao = tkFont.Font(family="Calibri", size=12)
+        self.root.option_add("*Font", fonte_padrao)
+
         self.backend_manager = BackendManager()
         self.setup_ui()
         
@@ -18,6 +24,8 @@ class IPCDemoWindow:
     
     def setup_ui(self):
         """Configura a interface do usuário"""
+        style = ttk.Style()
+        style.configure("TNotebook.Tab", font=("Calibri", 12, "bold"))
         # Notebook para abas
         self.notebook = ttk.Notebook(self.root)
         self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
@@ -144,7 +152,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
 
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] |{pid_info} | STATUS: '{status_val}' | DESC: '{data['message'].strip()}'\n"
             self.sockets_output.insert("end", text)
             
         elif data["type"] == "data":
@@ -187,7 +196,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
 
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message'].strip()}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] |{pid_info} | STATUS: '{status_val}' | DESC: '{data['message'].strip()}'\n"
             self.pipes_output.insert("end", text)
             
         elif data["type"] == "data":
@@ -211,7 +221,8 @@ class IPCDemoWindow:
         pid_info = f" (PID: {data.get('pid')})" if 'pid' in data else ""
         
         if data["type"] == "status":
-            text = f"[{timestamp}] STATUS: {data['message']}{pid_info}\n"
+            status_val = data.get('status', 'info')
+            text = f"[{timestamp}] |{pid_info} | STATUS: '{status_val}' | DESC: '{data['message'].strip()}'\n"
             self.shm_output.insert("end", text)
             
         elif data["type"] == "data":

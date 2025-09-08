@@ -30,7 +30,7 @@ char* execute_command(const char* command) {
 }
 
 void run_socket_test() {
-    const char* executable = "./build/socket_demo";
+    const char* executable = "./socket_demo";
     const char* test_message = "hello_from_socket_ctest";
     char command[512];
     snprintf(command, sizeof(command), "%s %s", executable, test_message);
@@ -48,8 +48,28 @@ void run_socket_test() {
         return;
     }
 
-    // Exibe o JSON completo para depuração
-    printf("%s", output);
+    // Filtra a saída para exibir apenas os JSONs de dados, de forma mais robusta.
+    printf("--- JSON de Comunicação de Dados (Socket Test) ---\n");
+    char* output_copy = strdup(output);
+    if (output_copy) {
+        char* line = output_copy;
+        while (1) {
+            char* next_line = strchr(line, '\n');
+            if (next_line) *next_line = '\0';
+
+            if (strstr(line, "\"type\":\"data\"")) {
+                printf("%s\n", line);
+            }
+
+            if (next_line) {
+                line = next_line + 1;
+            } else {
+                break;
+            }
+        }
+        free(output_copy);
+    }
+    printf("--- Fim do JSON de Comunicação ---\n\n");
 
     // Verificações do fluxo de comunicação
     int status_ok = 1;
